@@ -8,5 +8,6 @@ export class MongoUserRepository implements IUserRepository {
 
     async save(user: User): Promise<void> {
         this.users.push(user)
+        console.log(`O usuário ${user.name} foi cadastrado.`)
     }
 }
