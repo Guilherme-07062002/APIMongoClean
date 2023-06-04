@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 const PORT = 27017
 const HOST = '127.0.0.1'
 
-/**Conexão com Mongo */
-export class MongoConnection {
+/**Conexão com MongoDB */
+export class DatabaseConnection {
     connect() {
         mongoose.connect(`mongodb://${HOST}:${PORT}/teste`, { autoCreate: true })
             .then(() => {

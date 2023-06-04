@@ -1,9 +1,9 @@
-import { User } from './../../entities/User';
-import { IUserRepository } from './../IUserRepository';
-import userModel, { UserDocument } from '../../providers/MongoDBProvider/models/userModel';
+import { User } from '../../entities/User';
+import { IUserRepository } from '../IUserRepository';
+import userModel, { UserDocument } from '../../providers/DatabaseProvider/models/userModel';
 
-/** Representação de um repositório Mongo implementando o IUserRepository */
-export class MongoUserRepository implements IUserRepository {
+/** Repositório para comunicação com o banco de dados */
+export class DatabaseUserRepository implements IUserRepository {
 
     async save(user: User): Promise<void> {
         try {
