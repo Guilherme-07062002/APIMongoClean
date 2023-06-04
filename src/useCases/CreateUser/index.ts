@@ -2,6 +2,7 @@ import { MongoUserRepository } from './../../repositories/implementations/MongoU
 import { CreateUserCase } from './CreateUserCase';
 import { CreateUserController } from './CreateUserController';
 
+// Instanciação das classes
 
 const mongoUserRepository = new MongoUserRepository()
 
