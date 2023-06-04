@@ -1,3 +1,4 @@
+import { MongoConnection } from './../../providers/MongoDBProvider/MongoDBConnection';
 import { MongoUserRepository } from './../../repositories/implementations/MongoUserRepository';
 import { CreateUserCase } from './CreateUserCase';
 import { CreateUserController } from './CreateUserController';
@@ -10,4 +11,6 @@ const createUserCase = new CreateUserCase(mongoUserRepository)
 
 const createUserController = new CreateUserController(createUserCase)
 
-export { createUserController }
+const mongoConnection = new MongoConnection()
+
+export { createUserController, mongoConnection }

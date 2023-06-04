@@ -1,13 +1,21 @@
 import { User } from './../../entities/User';
 import { IUserRepository } from './../IUserRepository';
+import userModel, { UserDocument } from '../../providers/MongoDBProvider/models/userModel';
 
-/**Representação de um repositório Mongo implementando o IUserRepository */
+/** Representação de um repositório Mongo implementando o IUserRepository */
 export class MongoUserRepository implements IUserRepository {
-    // Armazenando registros em um array
-    private users: User[] = []
 
     async save(user: User): Promise<void> {
-        this.users.push(user)
-        console.log(`O usuário ${user.name} foi cadastrado.`)
+        try {
+            const newUser: UserDocument = new userModel(user);
+
+            // Salva o usuário no banco de dados
+            await newUser.save().then(() =>{
+                console.log(`O usuário ${user.name} foi cadastrado.`);
+            });
+
+        } catch (error) {
+            console.error('Erro ao salvar o usuário:', error);
+        }
     }
 }
