@@ -1,6 +1,7 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import { User } from '../../../entities/User';
 
-export interface UserDocument extends Document {
+export interface UserDocument extends User, Document {
   name: string;
   email: string;
 }
