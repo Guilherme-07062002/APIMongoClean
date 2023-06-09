@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 
-const PORT = 27017
-const HOST = '127.0.0.1'
+require('dotenv').config()
+
+const PORT = process.env.MONGO_PORT
+const HOST = process.env.HOST
 
 /**Conexão com MongoDB */
 export class DatabaseConnection {
