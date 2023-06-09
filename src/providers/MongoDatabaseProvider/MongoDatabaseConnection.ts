@@ -6,7 +6,7 @@ const PORT = process.env.MONGO_PORT
 const HOST = process.env.HOST
 
 /**Conexão com MongoDB */
-export class DatabaseConnection {
+export class MongoDatabaseConnection {
     connect() {
         mongoose.connect(`mongodb://${HOST}:${PORT}/teste`, { autoCreate: true })
             .then(() => {

@@ -1,16 +1,16 @@
-import {DatabaseConnection} from '../../providers/DatabaseProvider/DatabaseConnection'
-import { DatabaseUserRepository } from '../../repositories/implementations/DatabaseUserRepository';
+import { MongoDatabaseConnection } from '../../providers/MongoDatabaseProvider/MongoDatabaseConnection'
+import { MongoDatabaseUserRepository } from '../../repositories/implementations/MongoDatabaseUserRepository';
 import { CreateUserCase } from './CreateUserCase';
 import { CreateUserController } from './CreateUserController';
 
-// Instanciação das classes
+// Instanciação das classes - "Dependency Injection Container"
 
-const dbUserRepository = new DatabaseUserRepository()
+const dbUserRepository = new MongoDatabaseUserRepository()
 
 const createUserCase = new CreateUserCase(dbUserRepository)
 
 const createUserController = new CreateUserController(createUserCase)
 
-const dbConnection = new DatabaseConnection()
+const dbConnection = new MongoDatabaseConnection()
 
 export { createUserController, dbConnection }
